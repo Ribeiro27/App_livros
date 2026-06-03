@@ -1,24 +1,24 @@
 let servicos = "";
 const detalhes = [
     {
-        titulo: 'Jogo das quartas de final da copa do mundo de 2002',
-        descricao: 'xxxxxxxx xxxxxxxxx xxxxx',
-        imagem: 'src/img/2002_1.webp'
+        titulo: 'Endrick - 19 anos',
+        descricao: 'Atacante ',
+        imagem: 'src/img/Endrick.jpg'
     },
     {
-        titulo: 'Jogo especial',
-        descricao: 'xxxxxxxx xxxxxxxxx xxxxx',
-        imagem: 'src/img/2002_2.jpg'
+        titulo: 'Marquinhos - 32 anos',
+        descricao: 'Zagueiro',
+        imagem: 'src/img/Marquinhos.jpg'
     },
     {
-        titulo: 'Camisa azul',
-        descricao: 'xxxxxxxx xxxxxxxxx xxxxx',
-        imagem: 'src/img/2002_3.jpg'
+        titulo: 'Neymar - 34 anos',
+        descricao: 'Atacante ',
+        imagem: 'src/img/Neymar.webp'
     },
     {
-        titulo: 'Ronaldos',
-        descricao: 'xxxxxxxx xxxxxxxxx xxxxx',
-        imagem: 'src/img/2002_4.webp'
+        titulo: 'Vinicius Junior - 25 anos ',
+        descricao: 'Atacante',
+        imagem: 'src/img/Vinicius_junior.png'
     }
 ]
 
