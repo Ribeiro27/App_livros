@@ -3,7 +3,8 @@ import home from "./components/paginas/home.js";
 import sobre from "./components/paginas/sobre.js";
 import {contato, capturarFormulario} from "./components/paginas/contato.js";
 import servicos from "./components/paginas/servicos.js";
-navbar();
+import itens_menu from "./components/menu/itens.js";
+navbar(itens_menu);
 const app = document.getElementById('app');
 
 let rota = window.location.hash || '#inicio';

@@ -1,24 +1,28 @@
-function navbar(){
+function navbar(item_menu){
 const navbar = document.getElementById('navbar');
 navbar.innerHTML = `<nav class="bem-navbar">
             <a href="#" class="bem-navbar__brand">Brand</a>
             <input type="checkbox" id="nav-toggle" class="bem-navbar__checkbox">
             <label for="nav-toggle" class="bem-navbar__toggle">☰</label>
             <ul class="bem-navbar__menu">
-                <li class="bem-navbar__item">
-                    <a href="#inicio" class="bem-navbar__link bem-navbar__link--active">Inicial</a>
-                </li>
-                <li class="bem-navbar__item">
-                    <a href="#sobre" class="bem-navbar__link">Sobre</a>
-                </li>
-                <li class="bem-navbar__item">
-                    <a href="#contato" class="bem-navbar__link">Contato</a>
-                </li>
-                 <li class="bem-navbar__item">
-                    <a href="#servicos" class="bem-navbar__link">Serviços</a>
-                </li>
-            </ul>
-        </nav>`
-}
+                ${
+                    item_menu.map((item)=>{
+                        console.log(item);
+                        return `<li class="bem-navbar__item">
+                            <a href="${item.url}" class="bem-navbar__link">${item.label}</a>
+                        </li>`
+                    })
 
+                }
+            </ul>
+        </nav>`.replaceAll(',','');
+}
+/*
+item_menu
+for(let i=0; i<item_menu.length; i++){
+    `<li class="bem-navbar__item">
+        <a href="${item_menu[i].url}" class="bem-navbar__link >${item_menu[i].label}</a>
+    </li>`
+}
+*/
 export default navbar;
