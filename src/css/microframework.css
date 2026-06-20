@@ -141,7 +141,7 @@ body{
 .bem-form__input:focus,
 .bem-form__textarea:focus,
 .bem-compare__range:focus-visible{
-  opacity:.01;
+  opacity:1;
   outline:3px solid var(--bem-primary);
   outline-offset:-3px;
 }
