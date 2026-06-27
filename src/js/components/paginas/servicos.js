@@ -1,4 +1,4 @@
-let servicos = "";
+let cardServico = "";
 const detalhes = [
     {
         titulo: 'Jogo das quartas de final da copa do mundo de 2002',
@@ -23,19 +23,21 @@ const detalhes = [
 ]
 
 //
-servicos += `<div class="bem-grid-auto">`
-for(let i=0; i < detalhes.length; i++){
-servicos += `
-            <div class="bem-card">
-                <img class="bem-card__image" src="${detalhes[i].imagem}" alt="Image description">
-                <div class="bem-card__body">
-                    <h3 class="bem-card__title">${detalhes[i].titulo}</h3>
-                    <p>${detalhes[i].descricao}</p>
-                </div>
-            </div>
-        
-    `
+function servicos(){
+    cardServico += `<div class="bem-grid-auto">`
+    for(let i=0; i < detalhes.length; i++){
+        cardServico += `
+                    <div class="bem-card">
+                        <img class="bem-card__image" src="${detalhes[i].imagem}" alt="Image description">
+                        <div class="bem-card__body">
+                            <h3 class="bem-card__title">${detalhes[i].titulo}</h3>
+                            <p>${detalhes[i].descricao}</p>
+                        </div>
+                    </div>
+                
+            `
+        }
+    cardServico += `</div>`
+    return cardServico
 }
-servicos += `</div>`
-
 export default servicos;
