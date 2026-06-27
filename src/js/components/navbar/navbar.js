@@ -7,7 +7,6 @@ navbar.innerHTML = `<nav class="bem-navbar">
             <ul class="bem-navbar__menu">
                 ${
                     item_menu.map((item)=>{
-                        console.log(item);
                         return `<li class="bem-navbar__item">
                             <a href="${item.url}" class="bem-navbar__link">${item.label}</a>
                         </li>`

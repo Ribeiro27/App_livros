@@ -1,37 +1,30 @@
 import navbar from "./components/navbar/navbar.js";
-import home from "./components/paginas/home.js";
-import sobre from "./components/paginas/sobre.js";
-import {contato, capturarFormulario} from "./components/paginas/contato.js";
-import servicos from "./components/paginas/servicos.js";
-import itens_menu from "./components/menu/itens.js";
-navbar(itens_menu);
+import roteador from "./components/rotas/rotas.js";
+navbar(roteador);
 const app = document.getElementById('app');
-
-let rota = window.location.hash || '#inicio';
+console.log(roteador)
+const mapaDeRotas= {}
+console.log(mapaDeRotas)
+for(const rota of roteador){
+    mapaDeRotas[rota.url] = rota
+}
+// console.log(mapaDeRotas)
+// console.log(mapaDeRotas["#inicio"])
+// console.log(mapaDeRotas["#inicio"].pagina)
+// console.log(mapaDeRotas["#inicio"].pagina())
+let hash = window.location.hash || '#inicio';
 render();
 window.addEventListener("hashchange", ()=>{
-rota = window.location.hash;
+hash = window.location.hash;
 render();
 
 
 })
-
+const rota404 = { pagina: () => `<div> Página não encontrada 404 </div>`}
 function render(){
-    switch(rota){
-        case '#inicio':
-            app.innerHTML = home();
-        break;
-        case '#sobre':
-            app.innerHTML = sobre;
-        break;
-        case '#contato':
-            app.innerHTML = contato();
-            capturarFormulario();
-        break;
-        case '#servicos':
-            app.innerHTML = servicos;
-        break;
-        default:
-            app.innerHTML = `<h1> Página não encontrada </h1>`;
+    const rotaAtual = mapaDeRotas[hash] || rota404
+    app.innerHTML = rotaAtual.pagina()
+    if(typeof mapaDeRotas[hash].acao === 'function'){
+        mapaDeRotas[hash].acao()
     }
 }

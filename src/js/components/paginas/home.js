@@ -1,8 +1,8 @@
 function home() {
-const paginainicial =  `<h1> Esta é página Inicial </h1>
+    const paginainicial =  `<h1> Esta é página Inicial </h1>
 
-`
-return paginainicial;
+    `
+    return paginainicial;
 }
 
 export default home;
