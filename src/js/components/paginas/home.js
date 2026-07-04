@@ -1,4 +1,4 @@
-function home() {
+async function home() {
     const paginainicial =  `<h1> Esta é página Inicial </h1>
 
     `
