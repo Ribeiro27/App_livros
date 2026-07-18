@@ -17,23 +17,28 @@ async function capturacep(){
         document.getElementById("estado").value = dados.estado
     })
 }
-async function telaCadastro(){
+async function telaCadastro(app){
     const formulario = `
-    <form id="cadastroCliente" >
-        <label for="cep">CEP</label>
-        <input type="text" id="cep">
-        <label for="logradouro">logradouro</label>
-        <input type="text" id="logradouro">
-        <label for="bairro">bairro</label>
-        <input type="text" id="bairro">
-        <label for="localidade">localidade</label>
-        <input type="text" id="localidade">
-        <label for="estado">estado</label>
-        <input type="text" id="estado">
+    <form id="cadastroCliente" class="bem-container" >
+        <label for="cep" class="bem-form__label" >CEP</label>
+        <input type="text" id="cep" class="bem-form__input" >
+        <label for="logradouro" class="bem-form__label">logradouro</label>
+        <input type="text" id="logradouro" class="bem-form__input">
+        <label for="bairro" class="bem-form__label">bairro</label>
+        <input type="text" id="bairro" class="bem-form__input">
+        <label for="localidade" class="bem-form__label">localidade</label>
+        <input type="text" id="localidade" class="bem-form__input">
+        <label for="estado" class="bem-form__label">estado</label>
+        <input type="text" id="estado" class="bem-form__input">
     </form>
     `
-    return formulario;
+    app.innerHTML = formulario;
+    await capturacep();
 }
 
 
-export { telaCadastro, capturacep }
+export default {
+    url: '#cadastro',
+    label: 'Cadastro',
+    pagina: telaCadastro
+};

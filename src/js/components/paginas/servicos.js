@@ -23,7 +23,7 @@ const detalhes = [
 ]
 
 //
-function servicos(){
+async function servicos(app){
     cardServico += `<div class="bem-grid-auto">`
     for(let i=0; i < detalhes.length; i++){
         cardServico += `
@@ -38,6 +38,10 @@ function servicos(){
             `
         }
     cardServico += `</div>`
-    return cardServico
+    app.innerHTML = cardServico
 }
-export default servicos;
+export default {
+    url: '#servicos',
+    label: 'Serviços',
+    pagina: servicos
+};
