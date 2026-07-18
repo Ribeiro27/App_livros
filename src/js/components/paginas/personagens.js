@@ -2,24 +2,26 @@ import buscarServicos from "../Services/api.js"
 let cardServicos = ""
 let numero = 1
 async function criarPagina(app){
-        const nPagina = `?page=${1}`;
+        const nPagina = `?page=${numero}`;
         const detalhes = await buscarServicos("https://rickandmortyapi.com/api/character",nPagina);
         console.log(detalhes.results)
-        cardServicos += `<div class >
+        cardServicos += `
+        <div class >
+    <div class="bem-container">
+        <button class="bem-btn bem-btn--primary" id="btn-esquerda">
+            <span class="bem-btn__icon"> ◄ </span>
+            <span class="bem-btn__text"> ◄ </span>
+        </button>
+        <button class="bem-btn bem-btn--primary" id="btn-direita">
+            <span class="bem-btn__icon"> ► </span>
+            <span class="bem-btn__text"> ► </span>
+        </button>
+    </div>
+    <div class="bem-grid-auto">
     
-    <button class="bem-bnt bem-bnt--prmary">
-        <span class="bem-bnt__icon"> ◄ </span>
-        <span class="bem-bnt__text"> ◄ </span>
-        
-      </button>
-      
-  
+    `
        
-    
-</div>`
-       
-
-        for(let i=0; i < detalhes.results.length; i++){
+     for(let i=0; i < detalhes.results.length; i++){
             cardServicos += `
                     <div class="bem-card">
                         <img class="bem-card__image" src="${detalhes.results[i].image}" alt="Image description">
@@ -33,15 +35,15 @@ async function criarPagina(app){
         }
     cardServicos += `</div>`
     app.innerHTML = cardServicos
-   
+   await capturaBotoes()
 
 }
 async function capturaBotoes() {
-    const botao_esquerdo = document.getElementById("bnt-esquerda")
+   const botao_esquerdo = document.getElementById("bnt-esquerda")
    const botao_direito = document.getElementById("bnt-direita")
 
    botao_esquerdo.addEventListener("click", ()=>{
-    if(numero> 1){
+    if(numero > 1){
         numero=numero-1
         console.log(numero)
 
@@ -49,15 +51,15 @@ async function capturaBotoes() {
    }
 )
 botao_direito.addEventListener("click", ()=>{
-    if(numero> 20){
-        numero ++
+    if(numero < 20){
+        numero=numero+1
         console.log(numero)
-console.log(numero)
-    
+    }
+})
 }
 
 export default{
     url: "#rick",
     label:"Buscar API",
     pagina:criarPagina
-}
+};

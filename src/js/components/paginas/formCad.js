@@ -2,7 +2,7 @@ import buscarServicos from "../Services/api.js"
 async function capturacep(){
     const campocep = document.getElementById("cep")
     campocep.addEventListener("blur",async (event)=>{
-        const dados = await buscarServicos("http://viacep.com.br/ws/", event.target.value)
+        const dados = await buscarServicos("http://viacep.com.br/ws/", event.target.value,"/json")
         document.getElementById("logradouro").value = dados.logradouro
         document.getElementById("bairro").value = dados.bairro
         document.getElementById("localidade").value = dados.localidade
